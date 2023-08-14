@@ -21,7 +21,6 @@ public class GroundRepeat : MonoBehaviour
                 instancedGround = true;
                 GameObject tempGround = Instantiate(gameController.groundPrefab);
                 tempGround.transform.position = new Vector3(transform.position.x + gameController.groundLength, transform.position.y, 0);
-                Debug.Log("Chão instanicado");
             }
         }
 
