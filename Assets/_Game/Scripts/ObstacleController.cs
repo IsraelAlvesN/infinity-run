@@ -6,11 +6,13 @@ public class ObstacleController : MonoBehaviour
 {
     private Rigidbody2D myRB; 
     private GameController gameControllerScript;
+    private CameraShacker cameraShaker;
 
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
         gameControllerScript = FindObjectOfType(typeof(GameController)) as GameController;
+        cameraShaker = FindObjectOfType(typeof(CameraShacker)) as CameraShacker;
         //myRB.velocity = new Vector2(-5f, 0);
     }
 
@@ -37,7 +39,7 @@ public class ObstacleController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Tocou");
+            cameraShaker.ShakeIt();
         }
     }
 }

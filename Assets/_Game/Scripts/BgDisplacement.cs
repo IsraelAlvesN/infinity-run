@@ -21,7 +21,7 @@ public class BgDisplacement : MonoBehaviour
         materialObj = renderObj.material;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         offset += increaseOffset;
         materialObj.SetTextureOffset("_MainTex", new Vector2(offset * speedOffset, 0));
