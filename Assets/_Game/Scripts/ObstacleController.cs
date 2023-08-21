@@ -39,6 +39,7 @@ public class ObstacleController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameControllerScript.LoseLife(1);
             cameraShaker.ShakeIt();
         }
     }
