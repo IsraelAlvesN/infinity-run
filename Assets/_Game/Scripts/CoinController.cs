@@ -24,6 +24,7 @@ public class CoinController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
+            gameControllerScript.fxGame.PlayOneShot(gameControllerScript.fxCoin);
             gameControllerScript.EarnPoints(1);
         }
     }

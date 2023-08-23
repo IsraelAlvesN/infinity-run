@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameController gameControllerScript;
     private Animator anim;
     private Rigidbody2D myRB;
     public LayerMask layerGround;
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         myRB = GetComponent<Rigidbody2D>();
-
+        gameControllerScript = FindObjectOfType(typeof(GameController)) as GameController;
         MovePlayer();
     }
 
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             myRB.velocity = Vector2.zero;
             myRB.AddForce(new Vector2(0, jumpForce));
+            gameControllerScript.fxGame.PlayOneShot(gameControllerScript.fxJump);
         }
     }
 }

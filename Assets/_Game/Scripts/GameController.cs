@@ -26,6 +26,11 @@ public class GameController : MonoBehaviour
     public Text txtMeters;
     [Header("Distance Control")]
     public int travelledMeters = 0;
+    [Header("Sounds and Effects")]
+    public AudioSource fxGame;
+    public AudioClip fxCoin;
+    public AudioClip fxJump;
+
 
     void Start()
     {
@@ -70,6 +75,10 @@ public class GameController : MonoBehaviour
 
         GameObject obstacleObjTemp = Instantiate(obstaclePrefab);
         StartCoroutine("SpawnObstacle");
+
+        yield return new WaitForSeconds(1.5f);
+        // coin instances
+        StartCoroutine("SpawnCoin");
     }
 
     IEnumerator SpawnCoin()
